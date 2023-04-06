@@ -4,8 +4,9 @@ CAENUnpack.py 是用于解码CAEN Digitizer （725 and 730 系列）的脚本
 
 一.使用方法：
 
-   import CAENUnpack
-   CAENUnpack().UnpackAll(Inputfilename = ??,Outputfilename = ??)
+     import CAENUnpack
+   
+     CAENUnpack().UnpackAll(Inputfilename = ??,Outputfilename = ??)
 
 
 
