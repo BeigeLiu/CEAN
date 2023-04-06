@@ -13,8 +13,10 @@ CAENUnpack.py 是用于解码CAEN Digitizer （725 and 730 系列）的脚本
 二.转换出的pickle文件结构：
 
 用如下代码读出转换好的pkl文件
+
      import pickle as pkl
      Data = pkl.load(open(filename,'rb')) 
+
 读出的Data为一个列表，每一个元素对应一个事例
 Data[0] ：对应第一个事例，其为一个字典类型,下称其为Dict
 
