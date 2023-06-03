@@ -6,17 +6,11 @@ CAENUnpack.py 是用于解码CAEN Digitizer （725 and 730 系列）的脚本
 
      import CAENUnpack
    
-     CAENUnpack().UnpackAll(Inputfilename = ??,Outputfilename = ??)
+     CAENUnpack().ReadAll(Inputfilename = ??,Outputfilename = ??)
 
 
 
-二.转换出的pickle文件结构：
-
-用如下代码读出转换好的pkl文件
-
-     import pickle as pkl
-     Data = pkl.load(open(filename,'rb')) 
-
+二.转换出的数据结构：
 读出的Data为一个列表，每一个元素对应一个事例
 Data[0] ：对应第一个事例，其为一个字典类型,下称其为Dict
 
@@ -36,3 +30,13 @@ dict['Header']  :  字典类型， 对应这个channel的一些参数，例如TR
                      
 dict['Voltages']:  列表类型 ，对应这个channel读出的电压数据
                      
+三.内置方法
+1. 绘制单个事例 
+Module.PlotOneEvent(index = optional,pointer = optional)。其中参数index是第几个事例,pointer是指这个事例的指针,如果没有给定pointer,默认按照index绘图,如果不含index参数默认绘制第0个事例。
+
+2. S1，S2寻峰算法
+S1,S2寻峰算法可以用户指定也可以使用默认算法,用户指定需要重写SignalSelector模组,这个模组需要包含一个名为FindSignal()的方法。
+具体地,用户需要写一个包含FindSignal()方法的模组,这里令这个模组为MySignalSelector()，则只需要在分析代码前指定：
+Module.SignalSelector() = MySignalSelector()即可。
+
+3. 绘制SPE能谱 Module.PlotSPE()
