@@ -20,9 +20,13 @@ item = data.datalist[i] ## 取出第i个触发
 item.display()
 
 item 一个item包含如下性质
+
 item.triggerTime ## 触发相对于第一次触发的时间,单位μs
+
 item.traces      ## 一个列表,每个元素为各个激活通道的触发波形
+
 item.charge      ## 一个列表,各个通道的电量积分值,在建立Dataset时自动计算
+
 item.peaks       ## 一个列表,各个通道的峰位索引,在建立Dataset时自动计算
 
 二.基本数据分析
